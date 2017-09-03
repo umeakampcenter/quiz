@@ -1,4 +1,5 @@
 import React from 'react';
+import Hint from './Hint';
 
 export default class QuestionBox extends React.Component {
   render() {
@@ -7,12 +8,12 @@ export default class QuestionBox extends React.Component {
         <div className="question">
           {this.props.question}
         </div>
+        <Hint answer={this.props.answer} hintsUsed={this.props.hintsUsed}/>
         <div className="answer">
-          {this.props.answer}
           <input type="text"/>
         </div>
-        <div className="hint">
-          <button>Ledtråd</button>
+        <div className="hintbtn">
+          <button onClick={this.props.useHint}>Ledtråd</button>
         </div>
       </div>
     );
