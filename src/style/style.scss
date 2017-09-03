@@ -1,4 +1,23 @@
+$letterSpacing: 10px;
+
 * {
   box-sizing: border-box;
   color: red;
+}
+
+.hint {
+  font-family: 'Ubuntu Mono', monospace;
+
+  div {
+    display: inline-block;
+  }
+
+  .letter {
+    border-bottom: 1px solid #000;
+    margin: $letterSpacing;
+  }
+
+  .space {
+    width: $letterSpacing * 2;
+  }
 }
