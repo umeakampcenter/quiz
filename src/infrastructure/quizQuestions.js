@@ -4,7 +4,11 @@ const quizQuestions = {
     questions: [
       {
         question: "Grundteknik",
-        answer: "Kihon waza"
+        answer: "kihon waza"
+      },
+      {
+        question: "Utåtgående",
+        answer: "uchi"
       }
     ]
   }

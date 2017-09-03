@@ -1,17 +1,10 @@
 import React from 'react';
+import Engine from './Engine';
 
 export default class Layout extends React.Component {
-
-  constructor() {
-    super();
-    this.state = {
-      data: [],
-    };
-  }
-
   render() {
     return (
-      <h2>Hello World</h2>
+      <Engine/>
     );
   }
 
