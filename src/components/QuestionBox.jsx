@@ -6,7 +6,8 @@ export default class QuestionBox extends React.Component {
     return (
       <div className="questionbox">
         <div className="question">
-          {this.props.question}
+          {this.props.question.sv}
+          {this.props.question.en}
         </div>
         <Hint answer={this.props.answer} hintsUsed={this.props.hintsUsed}/>
         <div className="answer">
