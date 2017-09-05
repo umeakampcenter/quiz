@@ -6,7 +6,7 @@ export default class Quiz extends React.Component {
     super(props);
     this.state = {
       currentQuestion: 0,
-      hintsUsed: new Array(props.questions.length).fill(0)
+      hintsUsedList: new Array(props.questions.length).fill(0)
     };
   }  
 
@@ -59,7 +59,7 @@ export default class Quiz extends React.Component {
             <QuestionBox 
                 question={this.getCurrentQuestion().question} 
                 answer={this.getCurrentQuestion().answer} 
-                hintsUsed={this.state.hintsUsed[this.state.currentQuestion]} 
+                hintsUsed={this.state.hintsUsedList[this.state.currentQuestion]} 
                 useHint={this.useHint.bind(this)} 
             />
           </div>
