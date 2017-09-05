@@ -1,12 +1,14 @@
 import React from 'react';
 import QuestionBox from './QuestionBox';
+import update from 'immutability-helper';
 
 export default class Quiz extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentQuestion: 0,
-      hintsUsedList: new Array(props.questions.length).fill(0)
+      hintsUsedList: new Array(props.questions.length).fill(0),
+      answerList: new Array(props.questions.length).fill('')
     };
   }  
 
@@ -36,12 +38,20 @@ export default class Quiz extends React.Component {
 
   useHint() {
     this.setState((prevState) => {
-      const updatedHintsUsed = prevState.hintsUsed;
+      const updatedHintsUsed = prevState.hintsUsedList;
       updatedHintsUsed[prevState.currentQuestion]++;
-      return {
+      return {      
         hintsUsed: updatedHintsUsed
       };
     });
+  }
+
+  answerChanged(e) {
+    this.setState(update(this.state, {
+      answerList: {
+        [this.state.currentQuestion]: {$set: e.target.value}
+      }
+    }));
   }
 
   render() {
@@ -61,6 +71,7 @@ export default class Quiz extends React.Component {
                 answer={this.getCurrentQuestion().answer} 
                 hintsUsed={this.state.hintsUsedList[this.state.currentQuestion]} 
                 useHint={this.useHint.bind(this)} 
+                answerChanged={this.answerChanged.bind(this)}
             />
           </div>
           <div className="next">

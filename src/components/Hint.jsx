@@ -2,11 +2,11 @@ import React from 'react';
 
 export default class Hint extends React.Component {
   wrap(text) {
-    return text.split('').map(t => {
-      if (t === ' ') {
-        return <div className="space"></div>;
+    return text.split('').map((char, i) => {
+      if (char === ' ') {
+        return <div className="space" key={i}></div>;
       }
-      return <div className="letter">{t}</div>;
+      return <div className="letter" key={i}>{char}</div>;
     });
   }
 
