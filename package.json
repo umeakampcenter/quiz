@@ -1,5 +1,5 @@
 {
-  "name": "react-boilerplate",
+  "name": "quiz",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,10 +10,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eddyerburgh/react-boilerplate.git"
+    "url": "https://github.com/umeakampcenter/quiz"
   },
-  "author": "Edd Yerburgh",
-  "license": "FPL",
+  "author": "Umeå Kampcenter",
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
