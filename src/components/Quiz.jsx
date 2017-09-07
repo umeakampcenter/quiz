@@ -54,6 +54,15 @@ export default class Quiz extends React.Component {
     }));
   }
 
+  calculateResult() {
+    let result = [];
+    for (let i = 0; i < this.props.questions.length; i++) {
+      result[i] = this.props.questions[i].answer === this.state.answerList[i];   
+    }
+    console.log(result);
+
+  }
+
   render() {
     return (
       <div>
@@ -62,7 +71,7 @@ export default class Quiz extends React.Component {
         </div>
         <div className="carusel">
           <div className="prev">
-            <button onClick={this.prev.bind(this)} disabled={this.isFirstQuestion()}>Prev</button>
+            <button onClick={this.prev.bind(this)} disabled={this.isFirstQuestion()}>Föreg.</button>
           </div>
           <div>
             {this.state.currentQuestion}
@@ -72,10 +81,12 @@ export default class Quiz extends React.Component {
                 hintsUsed={this.state.hintsUsedList[this.state.currentQuestion]} 
                 useHint={this.useHint.bind(this)} 
                 answerChanged={this.answerChanged.bind(this)}
+                userAnswer={this.state.answerList[this.state.currentQuestion]}
             />
           </div>
           <div className="next">
-            <button onClick={this.next.bind(this)} disabled={this.isLastQuestion()}>Next</button>
+            <button onClick={this.next.bind(this)} className={this.isLastQuestion() ? 'hide' : ''}>Nästa</button>
+            <button onClick={this.calculateResult.bind(this)} className={this.isLastQuestion() ? '' : 'hide'}>Rätta</button>
           </div>
         </div>
       </div>
