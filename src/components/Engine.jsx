@@ -5,11 +5,28 @@ import Result from './Result';
 
 
 export default class Engine extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      currentResult: []
+    };
+  }
+
+  presentResult(result) {
+    this.setState({
+      currentResult: result
+    });
+  }
+
   render() {
     return (
       <div>
-        <Quiz name={quizQuestions.yellow.name} questions={quizQuestions.yellow.questions} />
-        <Result/>
+        <Quiz 
+            name={quizQuestions.yellow.name} 
+            questions={quizQuestions.yellow.questions} 
+            presentResult={this.presentResult.bind(this)}
+        />
+        <Result result={this.state.currentResult}/>
       </div>
     );
   }

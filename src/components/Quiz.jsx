@@ -60,7 +60,7 @@ export default class Quiz extends React.Component {
       result[i] = this.props.questions[i].answer === this.state.answerList[i];   
     }
     console.log(result);
-
+    this.props.presentResult(result);
   }
 
   render() {
