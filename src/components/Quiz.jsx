@@ -1,8 +1,9 @@
 import React from 'react';
 import QuestionBox from './QuestionBox';
 import update from 'immutability-helper';
+import {withRouter} from 'react-router-dom';
 
-export default class Quiz extends React.Component {
+class QuizInternal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,8 +60,9 @@ export default class Quiz extends React.Component {
     for (let i = 0; i < this.props.questions.length; i++) {
       result[i] = this.props.questions[i].answer === this.state.answerList[i];   
     }
-    console.log(result);
+    //console.log(result);
     this.props.presentResult(result);
+    this.props.history.push("/quiz/" + this.props.match.params.color + "/result");
   }
 
   render() {
@@ -93,3 +95,6 @@ export default class Quiz extends React.Component {
     );
   }
 }
+
+const Quiz = withRouter(QuizInternal);
+export default Quiz;
