@@ -1,10 +1,14 @@
 import React from 'react';
+import update from 'immutability-helper';
 
 export default class Hint extends React.Component {
-  wrap(text) {
-    return text.split('').map((char, i) => {
+  wrap() {
+    return this.props.answer.split('').map((char, i) => {
       if (char === ' ') {
         return <div className="space" key={i}></div>;
+      }
+      if (!this.props.answerFilter[i]) {
+        return <div className="letter" key={i}>&nbsp;</div>;
       }
       return <div className="letter" key={i}>{char}</div>;
     });
@@ -13,7 +17,7 @@ export default class Hint extends React.Component {
   render() {
     return (
       <div className="hint">
-        {this.wrap(this.props.answer)}
+        {this.wrap()}
       </div>
     );
   }

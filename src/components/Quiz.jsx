@@ -9,6 +9,7 @@ class QuizInternal extends React.Component {
     this.state = {
       currentQuestion: 0,
       hintsUsedList: new Array(props.questions.length).fill(0),
+      answerFilterList: props.questions.map((question, i) => question.answer.split('').map((char, i) => char === ' ')),
       answerList: new Array(props.questions.length).fill('')
     };
   }  
@@ -39,12 +40,34 @@ class QuizInternal extends React.Component {
 
   useHint() {
     this.setState((prevState) => {
-      const updatedHintsUsed = prevState.hintsUsedList;
-      updatedHintsUsed[prevState.currentQuestion]++;
-      return {      
-        hintsUsed: updatedHintsUsed
-      };
+      let currentAnswerFilter = prevState.answerFilterList[prevState.currentQuestion];
+      let numberOfLettersToHint = this.getNumberOfLettersToHint(this.props.questions[prevState.currentQuestion].answer, currentAnswerFilter);
+      
+      while (numberOfLettersToHint > 0) {
+        const index = Math.floor(Math.random() * currentAnswerFilter.length);
+        if (currentAnswerFilter[index]) {
+          continue;
+        }
+        currentAnswerFilter[index] = true;
+        numberOfLettersToHint--;
+      }
+
+      return update(prevState, {
+          hintsUsedList: {
+            [prevState.currentQuestion]: {$set: prevState.hintsUsedList[prevState.currentQuestion] + 1}
+          },
+          answerFilterList: {
+            [prevState.currentQuestion]: {$set: currentAnswerFilter}
+          }
+      });
     });
+  }
+
+  getNumberOfLettersToHint(answer, currentAnswerFilter) {
+    const answerChars = answer.split('');
+    const numberOfLetters = answerChars.reduce((sum, char) => sum + (char !== ' ' ? 1 : 0), 0);
+    const numberOfLettersGiven = answerChars.reduce((sum, char, i) => sum + (char !== ' ' && currentAnswerFilter[i] ? 1 : 0), 0);
+    return Math.min(Math.ceil(numberOfLetters / 5), numberOfLetters - numberOfLettersGiven);
   }
 
   answerChanged(e) {
@@ -81,6 +104,7 @@ class QuizInternal extends React.Component {
                 question={this.getCurrentQuestion().question} 
                 answer={this.getCurrentQuestion().answer} 
                 hintsUsed={this.state.hintsUsedList[this.state.currentQuestion]} 
+                answerFilter={this.state.answerFilterList[this.state.currentQuestion]}
                 useHint={this.useHint.bind(this)} 
                 answerChanged={this.answerChanged.bind(this)}
                 userAnswer={this.state.answerList[this.state.currentQuestion]}

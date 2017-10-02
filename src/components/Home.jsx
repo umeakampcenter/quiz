@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 export default class Home extends React.Component {
   render() {
-    console.log(this.props.quizNames);
     let quizButtons = [];
     for (let color in this.props.quizNames) { 
       if (this.props.quizNames.hasOwnProperty(color)) {
