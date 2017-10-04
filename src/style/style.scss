@@ -1,9 +1,85 @@
+/* Generalla värden som kan upprepas */
 $letterSpacing: 10px;
+$margin-auto: 0 auto;
+
+$font-stack: 'Open Sans', san-serif;
+
+$primary-theme-color: #a82a2a;
+$primary-background: #1c1c1c;
+$primary-grey: #323232;
+$primary-text-color: #fff;
+
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+
+/* Reset.css */
 
 * {
   box-sizing: border-box;
-  color: red;
 }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font: 100% $font-stack;
+  background: $primary-background;
+  color: $primary-text-color;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+*:focus {
+  outline: 0;
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+
+}
+
+/* Quiz start */
+
+#app {
+  max-width: 1200px;
+  margin: $margin-auto;
+}
+
+.color-select {
+  width: 32%;
+  margin: 0 2% 20px 0;
+  float: left;
+  background: $primary-grey;
+  padding: 20px;
+  text-align: center;
+}
+
+.color-select:nth-of-type(3n)  {
+  margin-right: 0;
+}
+
+
+
+
+
+
+/* Quiz frågor */
 
 .hint {
   font-family: 'Ubuntu Mono', monospace;
@@ -25,3 +101,7 @@ $letterSpacing: 10px;
 .hide {
   display: none;
 }
+
+
+/* Quiz resultat */
+
