@@ -8,8 +8,9 @@ export default class Home extends React.Component {
       if (this.props.quizNames.hasOwnProperty(color)) {
         quizButtons.push(
           <div className="color-select" key={color}>
-            <img src={'belt-' + color} alt="" class="beltimg"/>
-            <Link to={'/quiz/' + color}>{this.props.quizNames[color]}</Link>
+            <img src={'belt-' + color} alt="" className="beltimg"/>
+            <div className="quiz-name">{this.props.quizNames[color]}</div>
+            <Link to={'/quiz/' + color}></Link>
           </div>
         );
       }

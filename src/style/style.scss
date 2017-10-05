@@ -3,11 +3,14 @@ $letterSpacing: 10px;
 $margin-auto: 0 auto;
 
 $font-stack: 'Open Sans', san-serif;
+$weight-titel: 800;
 
 $primary-theme-color: #a82a2a;
 $primary-background: #1c1c1c;
 $primary-grey: #323232;
 $primary-text-color: #fff;
+
+$soft-transition: background-color 0.2s ease;
 
 
 @mixin border-radius($radius) {
@@ -51,7 +54,21 @@ img {
 }
 
 h1 {
+  font-weight: $weight-titel;
+  font-size: 2em;
+  margin: 30px 0;
+  text-transform: uppercase;
+}
 
+.aboslute-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 
 /* Quiz start */
@@ -68,29 +85,55 @@ h1 {
   background: $primary-grey;
   padding: 20px;
   text-align: center;
+  position: relative;
+  transition: $soft-transition;
+
+  &:hover {
+    background-color: #4e4e4e;
+    transition: $soft-transition;
+  }
+
+  &:nth-of-type(3n)  {
+    margin-right: 0;
+  }
+
+  a {
+    @extend .aboslute-link;
+  }
+
+  .quiz-name {
+    font-size: 1.2em;
+    font-weight: $weight-titel;
+  }
 }
-
-.color-select:nth-of-type(3n)  {
-  margin-right: 0;
-}
-
-
-
-
 
 
 /* Quiz frågor */
 
+.question-box {
+  background: $primary-grey;
+
+  .question {
+    font-weight: $weight-titel;
+    font-size: 1.4em;
+    text-align: center;
+    margin: 30px 0;
+  }
+}
+
 .hint {
   font-family: 'Ubuntu Mono', monospace;
-
+  text-align: center;
+  
   div {
     display: inline-block;
   }
 
   .letter {
     border-bottom: 1px solid #000;
+    display: inline-block;
     margin: $letterSpacing;
+    color: #a2a2a2;
   }
 
   .space {
