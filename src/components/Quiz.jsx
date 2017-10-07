@@ -92,13 +92,13 @@ class QuizInternal extends React.Component {
     return (
       <div>
         <div className="quizName">
-          {this.props.name}
+          <h1>{this.props.name}</h1>
         </div>
         <div className="carusel">
           <div className="prev">
             <button onClick={this.prev.bind(this)} disabled={this.isFirstQuestion()}>Föreg.</button>
           </div>
-          <div>
+          <div className="question-box">
             {this.state.currentQuestion}
             <QuestionBox 
                 question={this.getCurrentQuestion().question} 
