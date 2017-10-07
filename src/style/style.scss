@@ -1,5 +1,5 @@
 /* Generalla värden som kan upprepas */
-$letterSpacing: 10px;
+$letterSpacing: 12px;
 $margin-auto: 0 auto;
 
 $font-stack: 'Open Sans', san-serif;
@@ -9,6 +9,7 @@ $primary-theme-color: #a82a2a;
 $primary-background: #1c1c1c;
 $primary-grey: #323232;
 $primary-text-color: #fff;
+$color-letters: #a2a2a2;
 
 $soft-transition: background-color 0.2s ease;
 
@@ -118,26 +119,63 @@ h1 {
     font-size: 1.4em;
     text-align: center;
     margin: 30px 0;
+
+    .sv {
+      font-size: 36px;
+    }
+
+    .en {
+      font-size: 30px;
+      font-weight: 400;
+    }
   }
 }
 
 .hint {
-  font-family: 'Ubuntu Mono', monospace;
   text-align: center;
+  font-size: 1.8em;
   
   div {
     display: inline-block;
   }
 
   .letter {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid $color-letters;
     display: inline-block;
     margin: $letterSpacing;
-    color: #a2a2a2;
+    color: $color-letters;
+    width: 25px;
   }
 
   .space {
-    width: $letterSpacing * 2;
+    width: $letterSpacing * 3;
+  }
+}
+
+.answer {
+  width: 90%;
+  margin: 40px auto;
+  box-sizing: border-box;
+
+  input {    
+    @include border-radius(5px); 
+    border: none;
+    color: $color-letters;
+    padding: 20px;
+    font-size: 1.4em;
+    width: 100%;
+  }
+}
+
+.hintbtn {
+
+  button {
+    margin: 20px auto 0 0;
+    width: 0px;
+    height: 0px;
+    border-top: 60px solid transparent;
+    border-bottom: 0px solid transparent;
+    border-right: 140px solid $color-letters;
   }
 }
 
