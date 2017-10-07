@@ -19,9 +19,9 @@ export default class Layout extends React.Component {
     });
   }
 
-  renderResult() {
+  renderResult(props) {
     return(
-      <Result result={this.state.currentResult}/>
+      <Result result={this.state.currentResult} color={props.match.params.color} />
     );
   }
 
