@@ -10,6 +10,7 @@ $primary-background: #1c1c1c;
 $primary-grey: #323232;
 $primary-text-color: #fff;
 $color-letters: #a2a2a2;
+$weight-semibold: 600;
 
 $soft-transition: background-color 0.2s ease;
 
@@ -72,6 +73,8 @@ h1 {
   opacity: 0;
 }
 
+
+
 /* Quiz start */
 
 #app {
@@ -84,7 +87,7 @@ h1 {
   margin: 0 2% 20px 0;
   float: left;
   background: $primary-grey;
-  padding: 20px;
+  padding: 30px;
   text-align: center;
   position: relative;
   transition: $soft-transition;
@@ -105,15 +108,22 @@ h1 {
   .quiz-name {
     font-size: 1.2em;
     font-weight: $weight-titel;
+    padding-top: 15px;
   }
 }
 
 
 /* Quiz frågor */
 
-.question-box {
+.questionwrap {
   background: $primary-grey;
   position: relative;
+
+  .number {
+    font-weight: $weight-titel;
+    font-size: 1.4em;
+    padding: 20px;
+  }
 
   .question {
     font-weight: $weight-titel;
@@ -175,10 +185,14 @@ h1 {
     position: absolute; 
     bottom: 0;
     right: 0;
-    width: 100px;
-    height: 40px;
+    height: 90px;
+    padding: 70px 111px 50px 135px;
+    text-align: center;
+    width: 150px;
+    cursor: pointer;
     border: none;
-    font-size: 1.4em;
+    font-size: 1.5em;
+    font-weight: $weight-semibold; 
     color: $primary-text-color;
   }
 
@@ -189,9 +203,10 @@ h1 {
     height: 0px;
     border-top: 120px solid transparent;
     border-bottom: 0px solid transparent;
-    border-right: 250px solid $color-letters;
+    border-right: 250px solid #4b4949;
     position: absolute;
     right: 0;
+    bottom: 0;
   }
 }
 

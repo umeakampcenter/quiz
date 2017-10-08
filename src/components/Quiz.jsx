@@ -98,8 +98,8 @@ class QuizInternal extends React.Component {
           <div className="prev">
             <button onClick={this.prev.bind(this)} disabled={this.isFirstQuestion()}>Föreg.</button>
           </div>
-          <div className="question-box">
-            {this.state.currentQuestion}
+          <div className="questionwrap">
+            <div className="number">{this.state.currentQuestion+1}.</div>
             <QuestionBox 
                 question={this.getCurrentQuestion().question} 
                 answer={this.getCurrentQuestion().answer} 
