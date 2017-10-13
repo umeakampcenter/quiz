@@ -156,6 +156,23 @@ h1 {
   .next {
     left: auto;
     right: -20px;
+
+    &:before {
+      content: "\f105";
+    }
+  }
+
+  .prev {
+    &:before {
+      content: "\f104";
+    }
+  }
+
+  
+
+  .next {
+    left: auto;
+    right: -20px;
     font: normal normal normal 40px/1 FontAwesome;
     content: "\f105";
   }
