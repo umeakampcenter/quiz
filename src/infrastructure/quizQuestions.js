@@ -104,7 +104,7 @@ const quizQuestions = {
         answer: "kuzushi"
       },
       {
-        question: {sv: "Den följsamma arten", "The gentle art"},
+        question: {sv: "Den följsamma arten", en: "The gentle art"},
         answer: "jujutsu"
       },
       {
@@ -116,7 +116,7 @@ const quizQuestions = {
         answer: "uchi"
       },
       {
-        question: {sv: "Teknik (-grupp)", "Technique (group of)"},
+        question: {sv: "Teknik (-grupp)", en: "Technique (group of)"},
         answer: "waza"
       },
       {
