@@ -4,6 +4,7 @@ import quizQuestions from '../infrastructure/quizQuestions';
 import Result from './Result';
 import Quiz from './Quiz';
 import Home from './Home';
+import { shuffle } from '../tools/shuffle.js';
 
 export default class Layout extends React.Component {
   constructor() {
@@ -43,7 +44,7 @@ export default class Layout extends React.Component {
           <Route path="/quiz/:color" render={props => 
             <Quiz 
               name={quizQuestions[props.match.params.color].name} 
-              questions={quizQuestions[props.match.params.color].questions} 
+              questions={shuffle(quizQuestions[props.match.params.color].questions)} 
               presentResult={this.presentResult.bind(this)}
             />
           }/>

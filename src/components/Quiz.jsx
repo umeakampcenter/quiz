@@ -83,7 +83,7 @@ class QuizInternal extends React.Component {
     for (let i = 0; i < this.props.questions.length; i++) {
       result[i] = this.props.questions[i].answer === this.state.answerList[i];   
     }
-    //console.log(result);
+    
     this.props.presentResult(result);
     this.props.history.push("/quiz/" + this.props.match.params.color + "/result");
   }
