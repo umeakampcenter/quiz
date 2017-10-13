@@ -47,12 +47,24 @@ const quizQuestions = {
         answer: "ude"
       },
       {
-        question: {sv: "Lås/fasthållning", en: "Lock or pin"},
+        question: {sv: "Lås/fasthållning ...", en: "Lock or pin ..."},
+        answer: "katame"
+      },
+      {
+        question: {sv: "... lås/fasthållning", en: "... lock or pin"},
         answer: "gatame"
       },
       {
-        question: {sv: "Höft", en: "Hip"},
+        question: {sv: "Höft ...", en: "Hip ..."},
+        answer: "koshi"
+      },
+      {
+        question: {sv: "... höft", en: "... hip"},
         answer: "goshi"
+      },
+      {
+        question: {sv: "Ett", en: "One"},
+        answer: "ichi"
       }
     ]
   },
@@ -60,7 +72,7 @@ const quizQuestions = {
     name: "Orange bälte",
     questions: [
       {
-        question: {sv: "Blockering eller mottagare av teknik", en: "Block or receiver of technique"},
+        question: {sv: "Blockering/att ta emot", en: "Block/to receive"},
         answer: "uke"
       },
       {
@@ -78,6 +90,50 @@ const quizQuestions = {
       {
         question: {sv: "(Kropps-)förflyttning", en: "(Body) movement"},
         answer: "taisabaki"
+      },
+      {
+        question: {sv: "Den som utför tekniken", en: "Performer of technique"},
+        answer: "tori"
+      },
+      {
+        question: {sv: "Kast", en: "Throw"},
+        answer: "nage"
+      },
+      {
+        question: {sv: "Urbalansering", en: "Unbalancing"},
+        answer: "kuzushi"
+      },
+      {
+        question: {sv: "Den följsamma arten", en: "The gentle art"},
+        answer: "jujutsu"
+      },
+      {
+        question: {sv: "Yttre", en: "Outer"},
+        answer: "soto"
+      },
+      {
+        question: {sv: "Inre", en: "Inner"},
+        answer: "uchi"
+      },
+      {
+        question: {sv: "Teknik (-grupp)", en: "Technique (group of)"},
+        answer: "waza"
+      },
+      {
+        question: {sv: "Bakåt", en: "Back"},
+        answer: "ushiro"
+      },
+      {
+        question: {sv: "Tryck", en: "Pressure"},
+        answer: "osae"
+      },
+      {
+        question: {sv: "Ställning ...", en: "Stance ..."},
+        answer: "tachi"
+      },
+      {
+        question: {sv: "Slag", en: "Punch"},
+        answer: "tski"
       }
     ]
   }
