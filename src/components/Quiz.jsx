@@ -109,10 +109,10 @@ class QuizInternal extends React.Component {
                 answerChanged={this.answerChanged.bind(this)}
                 userAnswer={this.state.answerList[this.state.currentQuestion]}
             />
+            <button onClick={this.calculateResult.bind(this)} className={'result-btn ' + (this.isLastQuestion() ? '' : 'hide')}>Rätta</button>
           </div>
           <div className="next">
-            <button onClick={this.next.bind(this)} className={this.isLastQuestion() ? 'hide' : ''}>Nästa</button>
-            <button onClick={this.calculateResult.bind(this)} className={this.isLastQuestion() ? '' : 'hide'}>Rätta</button>
+            <button onClick={this.next.bind(this)} className={this.isLastQuestion() ? 'hide' : ''}>Nästa</button>            
           </div>
         </div>
       </div>
