@@ -99,7 +99,7 @@ class QuizInternal extends React.Component {
             <div onClick={this.prev.bind(this)} className={this.isFirstQuestion() ? 'hide' : ''}></div>
           </div>
           <div className="questionwrap">
-            <div className="number">{this.state.currentQuestion+1}.</div>
+            <div className="number">{this.state.currentQuestion+1}/{this.props.questions.length}</div>
             <QuestionBox 
                 question={this.getCurrentQuestion().question} 
                 answer={this.getCurrentQuestion().answer} 
