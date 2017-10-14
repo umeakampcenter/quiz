@@ -44,7 +44,7 @@ a:link, a:visited {
   color: inherit;
 }
 a:hover, a:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 *:focus {
@@ -144,38 +144,34 @@ h1 {
   .prev,
   .next {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: -50px;
-    font: normal normal normal 40px/1 FontAwesome;
-    content: "\f105";
-    height: 20px;
-    width: 20px;
+    font: normal normal normal 70px/1 FontAwesome;
+    height: 70px;
+    width: 50px;
     color: $white;
+    cursor: pointer;
+    padding: 0 0 0 20px;
   }
 
   .next {
     left: auto;
-    right: -20px;
+    right: -70px;
 
-    &:before {
+    div:before {
       content: "\f105";
     }
   }
 
   .prev {
-    &:before {
+    left: -70px;
+    right: auto;
+    padding: 0 20px 0 0;
+
+    div:before {
       content: "\f104";
     }
-  }
-
-  
-
-  .next {
-    left: auto;
-    right: -20px;
-    font: normal normal normal 40px/1 FontAwesome;
-    content: "\f105";
-  }
+  }  
 
   .prev button,
   .next button {
@@ -192,7 +188,7 @@ h1 {
 
     .number {
       font-weight: $weight-titel;
-      font-size: 1.4em;
+      font-size: 2em;
       padding: 20px;
     }
 
@@ -329,3 +325,30 @@ h1 {
 
 /* Quiz resultat */
 
+.resultbox {
+  text-align: center;
+  padding: 40px 0 70px;
+  margin: 0 auto;
+  width: 70%;
+  font-size: 1.8em;
+  font-weight: 800;
+
+  .result-text {
+    padding-bottom: 50px;
+  }
+
+  .link-btn {
+    @include border-radius(5px); 
+    margin: 0 15px 40px;
+    background: $red-dark;
+    color: $white;
+    padding: 20px 30px;
+    font-size: 0.8em;
+    font-weight: 600;
+    display: inline-block;
+
+    &:hover {
+      background: $red-light;
+    }
+  }
+}

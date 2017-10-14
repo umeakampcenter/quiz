@@ -96,7 +96,7 @@ class QuizInternal extends React.Component {
         </div>
         <div className="carusel">
           <div className="prev">
-            <button onClick={this.prev.bind(this)} disabled={this.isFirstQuestion()}>Föreg.</button>
+            <div onClick={this.prev.bind(this)} className={this.isFirstQuestion() ? 'hide' : ''}></div>
           </div>
           <div className="questionwrap">
             <div className="number">{this.state.currentQuestion+1}.</div>
@@ -112,7 +112,7 @@ class QuizInternal extends React.Component {
             <button onClick={this.calculateResult.bind(this)} className={'result-btn ' + (this.isLastQuestion() ? '' : 'hide')}>Rätta</button>
           </div>
           <div className="next">
-            <button onClick={this.next.bind(this)} className={this.isLastQuestion() ? 'hide' : ''}>Nästa</button>            
+            <div onClick={this.next.bind(this)} className={this.isLastQuestion() ? 'hide' : ''}></div>            
           </div>
         </div>
       </div>

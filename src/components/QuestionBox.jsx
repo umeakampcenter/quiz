@@ -15,7 +15,7 @@ export default class QuestionBox extends React.Component {
         </div>
         <Hint answer={this.props.answer} hintsUsed={this.props.hintsUsed} answerFilter={this.props.answerFilter} />
         <div className="answer">
-          <input type="text" placeholder="Skriv ditt svar här" onChange={this.props.answerChanged} value={this.props.userAnswer} />
+          <input type="text" placeholder="Skriv ditt svar här..." onChange={this.props.answerChanged} value={this.props.userAnswer} />
         </div>
         <div className="hintbtn">
           <div className="tri-button" onClick={this.props.useHint} disabled={this.hasUsedAllHints()}>Ledtråd</div>
