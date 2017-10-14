@@ -398,6 +398,27 @@ h1 {
       font-size: 80%;
     }
 
+    .color-select {
+      width: 48%;
+      margin: 0 2% 20px 0;
+
+      &:nth-of-type(3n)  {
+        margin-right: 2%;
+      }
+
+      &:nth-of-type(2n)  {
+        margin-right: 0;
+      }
+    }
+    
+    .color-select .quiz-name {
+      font-size: 18px;
+    }
+
+    .hint .letter {
+      width: 18px;
+    }
+
     .hintbtn .tri-button {
       padding: 54px 88px 42px 135px;
     }
@@ -406,5 +427,99 @@ h1 {
       border-top: 100px solid transparent;
       border-right: 220px solid #4b4949;
     }
+}
 
+ @media all and (max-width: 479px) {
+
+  body, html {
+    font-size: 72%;
   }
+
+  #header #logo {
+    width: 180px;
+  }
+  
+  h1 {
+    margin: 20px 0;
+  }
+
+  #app {
+    width: 75%;
+  }
+
+  .color-select {
+    width: 100%;
+    margin: 0 0 20px 0;
+    float: none;
+
+    &:nth-of-type(3n)  {
+      margin-right: 0;
+    }
+  }
+
+  .carusel {
+    .prev, 
+    .next {
+      font: normal normal normal 50px/1 FontAwesome;
+    }
+
+    .next {
+      right: -17%;
+    }
+
+    .prev {
+      left: -13%;
+    }
+
+    .questionwrap {
+      .result-btn {
+        padding: 15px 20px;
+        bottom: 80px;
+        width: 150px;
+      }
+    }    
+  }
+
+  .answer {
+    width: 85%;
+  }
+
+  .resultbox .link-btn {
+    box-sizing: border-box;
+    margin: 0 0 25px;
+    width: 100%;
+    padding: 15px 30px;
+  }
+
+  .beltimg {
+    width: 170px;
+  }
+
+  .answer input {
+    padding: 12px;
+    font-size: 1.3em;
+    width: 100%;
+  }
+
+  .hint {
+    font-size: 1.5em;
+
+    .letter {
+      width: 14px;
+      margin: 5px;
+    }
+  }
+
+  .hintbtn {
+
+    &:before {
+      border-top: 80px solid transparent;
+      border-right: 160px solid #4b4949;
+    }  
+  
+    .tri-button {
+      padding: 55px 70px 21px 90px;
+    }
+  }
+
+}
