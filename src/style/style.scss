@@ -199,11 +199,11 @@ h1 {
       margin: 0 0 30px;
 
       .sv {
-        font-size: 36px;
+        font-size: 1.5em;
       }
 
       .en {
-        font-size: 30px;
+        font-size: 1.3em;
         font-weight: 400;
       }
     }
@@ -352,3 +352,59 @@ h1 {
     }
   }
 }
+
+
+@media all and (max-width: 1350px) {
+
+  #app {
+    width: 80%; 
+  }
+
+  .inner {
+    max-width: 80%;
+  }
+}
+
+@media all and (max-width: 1200px) {
+
+  body, html {
+    font-size: 90%;
+  }
+}
+
+@media all and (max-width: 959px) {
+
+  #header #logo {
+    width: 35%;
+  }
+
+  .hint .letter {
+    margin: 8px;
+  }
+
+  .carusel .next {
+    right: -10%;
+  }
+
+  .carusel .prev {
+    left: -10%;
+  }
+
+}
+
+@media all and (max-width: 767px) {
+  
+    body, html {
+      font-size: 80%;
+    }
+
+    .hintbtn .tri-button {
+      padding: 54px 88px 42px 135px;
+    }
+
+    .hintbtn:before {
+      border-top: 100px solid transparent;
+      border-right: 220px solid #4b4949;
+    }
+
+  }
