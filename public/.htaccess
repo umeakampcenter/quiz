@@ -1,0 +1,9 @@
+RewriteEngine On
+RedirectMatch 302 ^/quiz/[^/]+/result$ http://umeakampcenter.se/quiz
+
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+# Fallback all other routes to index.html
+RewriteRule ^ /quiz/index.html [L]
