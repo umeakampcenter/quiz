@@ -2,8 +2,20 @@ import React from 'react';
 import Hint from './Hint';
 
 export default class QuestionBox extends React.Component {
-  hasUsedAllHints() {
-    return this.props.hintsUsed > 4;
+  constructor(props) {
+    super(props);
+    this.useHint = this.useHint.bind(this);
+    this.isAllHintsUsed = this.isAllHintsUsed.bind(this);
+  }
+
+  useHint() {
+    if (!this.isAllHintsUsed()) {
+      this.props.useHint();
+    }
+  }
+
+  isAllHintsUsed() {
+    return this.props.answerFilter.find(isLetterShown => isLetterShown === false) === undefined;
   }
 
   render() {
@@ -18,7 +30,7 @@ export default class QuestionBox extends React.Component {
           <input type="text" placeholder="Skriv ditt svar här..." onChange={this.props.answerChanged} value={this.props.userAnswer} />
         </div>
         <div className="hintbtn">
-          <div className="tri-button" onClick={this.props.useHint} disabled={this.hasUsedAllHints()}>Ledtråd</div>
+          <div className={'tri-button ' + (this.isAllHintsUsed() ? 'disabled' : '')} onClick={this.useHint}>Ledtråd</div>
         </div>
       </div>
     );
