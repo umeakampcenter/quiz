@@ -12,6 +12,9 @@ class QuizInternal extends React.Component {
       answerFilterList: props.questions.map((question, i) => question.answer.split('').map((char, i) => char === ' ')),
       answerList: new Array(props.questions.length).fill('')
     };
+    this.next = this.next.bind(this);
+    this.calculateResult = this.calculateResult.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
   }  
 
   prev() {
@@ -88,6 +91,13 @@ class QuizInternal extends React.Component {
     this.props.history.push("/quiz/" + this.props.match.params.color + "/result");
   }
 
+  handleEnter() {
+    if (this.isLastQuestion()) {
+      this.calculateResult();
+    }
+    this.next();
+  }
+
   render() {
     return (
       <div>
@@ -108,11 +118,12 @@ class QuizInternal extends React.Component {
                 useHint={this.useHint.bind(this)} 
                 answerChanged={this.answerChanged.bind(this)}
                 userAnswer={this.state.answerList[this.state.currentQuestion]}
+                handleEnter={this.handleEnter}
             />
-            <button onClick={this.calculateResult.bind(this)} className={'result-btn ' + (this.isLastQuestion() ? '' : 'hide')}>Rätta</button>
+            <button onClick={this.calculateResult} className={'result-btn ' + (this.isLastQuestion() ? '' : 'hide')}>Rätta</button>
           </div>
           <div className="next">
-            <div onClick={this.next.bind(this)} className={this.isLastQuestion() ? 'hide' : ''}></div>            
+            <div onClick={this.next} className={this.isLastQuestion() ? 'hide' : ''}></div>            
           </div>
         </div>
       </div>

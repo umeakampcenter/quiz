@@ -6,6 +6,7 @@ export default class QuestionBox extends React.Component {
     super(props);
     this.useHint = this.useHint.bind(this);
     this.isAllHintsUsed = this.isAllHintsUsed.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   useHint() {
@@ -18,6 +19,11 @@ export default class QuestionBox extends React.Component {
     return this.props.answerFilter.find(isLetterShown => isLetterShown === false) === undefined;
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.handleEnter();
+  }
+
   render() {
     return (
       <div className="questionbox">
@@ -27,7 +33,9 @@ export default class QuestionBox extends React.Component {
         </div>
         <Hint answer={this.props.answer} hintsUsed={this.props.hintsUsed} answerFilter={this.props.answerFilter} />
         <div className="answer">
-          <input type="text" placeholder="Skriv ditt svar här..." onChange={this.props.answerChanged} value={this.props.userAnswer} />
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" placeholder="Skriv ditt svar här..." onChange={this.props.answerChanged} value={this.props.userAnswer} />
+          </form>
         </div>
         <div className="hintbtn">
           <div className={'tri-button ' + (this.isAllHintsUsed() ? 'disabled' : '')} onClick={this.useHint}>Ledtråd</div>
