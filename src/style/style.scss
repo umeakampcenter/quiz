@@ -241,16 +241,16 @@ h1 {
     display: inline-block;
   }
 
+  .word {
+    margin: 0 $letterSpacing * 2;
+  }
+
   .letter {
     border-bottom: 1px solid $color-letters;
     display: inline-block;
     margin: $letterSpacing;
     color: $color-letters;
     width: 25px;
-  }
-
-  .space {
-    width: $letterSpacing * 3;
   }
 }
 

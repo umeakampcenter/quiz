@@ -2,14 +2,15 @@ import React from 'react';
 import update from 'immutability-helper';
 
 export default class Hint extends React.Component {
-  wrap() {
+  getHintWords() {
     const words = this.props.answer.split(' ');
+    let totalLetterCount = 0;
     return words.map((word, i) => {
+      if (i > 0) {
+        totalLetterCount++; // Count spaces
+      }
       const wrappedLetters = word.split('').map((char, j) => {
-        if (char === ' ') {
-          return <div className="space" key={j}></div>;
-        }
-        if (!this.props.answerFilter[j]) {
+        if (!this.props.answerFilter[totalLetterCount++]) {
           return <div className="letter" key={j}>&nbsp;</div>;
         }
         return <div className="letter" key={j}>{char}</div>;
@@ -21,7 +22,7 @@ export default class Hint extends React.Component {
   render() {
     return (
       <div className="hint">
-        {this.wrap()}
+        {this.getHintWords()}
       </div>
     );
   }
