@@ -84,7 +84,10 @@ class QuizInternal extends React.Component {
   calculateResult() {
     let result = [];
     for (let i = 0; i < this.props.questions.length; i++) {
-      result[i] = this.props.questions[i].answer === this.state.answerList[i];   
+      result[i] = {
+        isCorrect: this.props.questions[i].answer === this.state.answerList[i],
+        numHintsUsed: this.state.hintsUsedList[i]
+      };   
     }
     
     this.props.presentResult(result);

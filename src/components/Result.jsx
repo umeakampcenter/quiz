@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 
 export default class Result extends React.Component {
   getNumCorrectAnswers() {
-    return this.props.result.reduce((sum, questionResult) => sum + questionResult, 0);
+    return this.props.result.reduce((sum, questionResult) => sum + questionResult.isCorrect, 0);
+  }
+
+  getNumHintsUsed() {
+    return this.props.result.reduce((sum, questionResult) => sum + questionResult.numHintsUsed, 0);
   }
 
   render() {
@@ -17,6 +21,7 @@ export default class Result extends React.Component {
             <div className="resultbox">
               <h2>Resultat</h2>
               <div className="result-text">Du hade rätt på {this.getNumCorrectAnswers()} frågor av {this.props.result.length}</div>
+              <div className="hint-text">Du använde dig av {this.getNumHintsUsed()} ledtrådar</div>
               <Link to={'/quiz/' + this.props.color} className="link-btn">Gör quizen igen</Link>
               <Link to="/" className="link-btn">Välj en annan quiz</Link>
             </div>
